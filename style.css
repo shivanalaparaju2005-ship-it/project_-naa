@@ -324,6 +324,12 @@ header.header-bar {
   border-color: rgba(0, 230, 118, 0.2);
 }
 
+.badge-benchmark {
+  background: rgba(0, 240, 255, 0.05);
+  color: var(--color-cyan);
+  border-color: rgba(0, 240, 255, 0.18);
+}
+
 .badge-estimated {
   background: rgba(255, 87, 34, 0.08);
   color: #ff5722;
