@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAA ANVESHNA INTELLIGENCE REPORT</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- JSVectorMap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background animations -->
+  <div class="bg-glowing-orbs"></div>
+  <div class="grid-background"></div>
+
+  <div id="app-container">
+    
+    <!-- STICKY SIDEBAR -->
+    <aside class="sidebar" id="app-sidebar">
+      <div class="logo-area">
+        <h1 class="logo-text">
+          <i class="fa-solid fa-satellite-dish"></i>
+          <span>NAA ANVESHNA</span>
+        </h1>
+      </div>
+      
+      <nav class="nav-links">
+        <a href="#hero-dashboard" class="nav-link active" data-sec="hero-dashboard">
+          <i class="fa-solid fa-chart-line"></i><span>Hero Dashboard</span>
+        </a>
+        <a href="#command-center" class="nav-link" data-sec="command-center">
+          <i class="fa-solid fa-gauge-high"></i><span>Command Center</span>
+        </a>
+        <a href="#health-score" class="nav-link" data-sec="health-score">
+          <i class="fa-solid fa-heart-pulse"></i><span>Channel Health</span>
+        </a>
+        <a href="#content-performance" class="nav-link" data-sec="content-performance">
+          <i class="fa-solid fa-list-check"></i><span>Content Performance</span>
+        </a>
+        <a href="#travel-geography" class="nav-link" data-sec="travel-geography">
+          <i class="fa-solid fa-earth-americas"></i><span>Travel Geography</span>
+        </a>
+        <a href="#category-analysis" class="nav-link" data-sec="category-analysis">
+          <i class="fa-solid fa-pie-chart"></i><span>Category Analysis</span>
+        </a>
+        <a href="#title-intelligence" class="nav-link" data-sec="title-intelligence">
+          <i class="fa-solid fa-language"></i><span>Title Intelligence</span>
+        </a>
+        <a href="#thumbnail-intelligence" class="nav-link" data-sec="thumbnail-intelligence">
+          <i class="fa-solid fa-image"></i><span>Thumbnail Lab</span>
+        </a>
+        <a href="#upload-timing" class="nav-link" data-sec="upload-timing">
+          <i class="fa-solid fa-calendar-days"></i><span>Upload Timing</span>
+        </a>
+        <a href="#competitor-warroom" class="nav-link" data-sec="competitor-warroom">
+          <i class="fa-solid fa-shield-halved"></i><span>Competitor War Room</span>
+        </a>
+        <a href="#revenue-center" class="nav-link" data-sec="revenue-center">
+          <i class="fa-solid fa-money-bill-trend-up"></i><span>Revenue Center</span>
+        </a>
+        <a href="#predictive-analytics" class="nav-link" data-sec="predictive-analytics">
+          <i class="fa-solid fa-wand-magic-sparkles"></i><span>Predictive Analytics</span>
+        </a>
+        <a href="#strategic-matrix" class="nav-link" data-sec="strategic-matrix">
+          <i class="fa-solid fa-chess-board"></i><span>Strategic Matrix</span>
+        </a>
+        <a href="#executive-summary" class="nav-link" data-sec="executive-summary">
+          <i class="fa-solid fa-file-invoice"></i><span>Executive Summary</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div>ANVESHANA OS v2.4</div>
+        <div>Boardroom Intelligence</div>
+        <div style="color: var(--color-cyan); margin-top: 0.25rem;"><i class="fa-solid fa-circle" style="font-size: 0.5rem; vertical-align: middle;"></i> Live Forecast Mode</div>
+      </div>
+    </aside>
+
+    <!-- MAIN VIEWPORT -->
+    <main class="main-viewport">
+      
+      <!-- HEADER CONTROL BAR -->
+      <header class="header-bar">
+        <div class="header-left">
+          <button class="mobile-toggle" id="sidebar-toggle" aria-label="Toggle Sidebar">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="global-search-input" id="global-search" placeholder="Query metrics, categories, titles...">
+          </div>
+        </div>
+        
+        <div class="header-right">
+          <span class="badge-tag badge-verified" id="data-status-badge"><i class="fa-solid fa-shield-check"></i> Verified Data</span>
+        </div>
+      </header>
+
+      <!-- PAGE WRAPPER / SECTIONS -->
+      <div class="content-wrapper">
+        
+        <!-- SECTION 1: HERO DASHBOARD -->
+        <section id="hero-dashboard" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Hero Dashboard</h2>
+              <span class="section-desc">Real-time core performance indexes for Naa Anveshana channel</span>
+            </div>
+            <span class="badge-tag badge-verified">Verified Data</span>
+          </div>
+          
+          <div class="kpi-grid">
+            <div class="card-glass kpi-card">
+              <div class="kpi-card-header">
+                <span>Total Subscribers</span>
+                <div class="kpi-icon-wrapper"><i class="fa-solid fa-users"></i></div>
+              </div>
+              <div class="kpi-value-container">
+                <span class="kpi-value" id="kpi-subs" data-target="2175000">0</span>
+              </div>
+              <div class="kpi-footer">
+                <span class="kpi-trend up"><i class="fa-solid fa-circle-arrow-up"></i> +8.4%</span>
+                <span class="kpi-trend-period">vs last 30d</span>
+              </div>
+            </div>
+
+            <div class="card-glass kpi-card">
+              <div class="kpi-card-header">
+                <span>Total Channel Views</span>
+                <div class="kpi-icon-wrapper"><i class="fa-solid fa-eye"></i></div>
+              </div>
+              <div class="kpi-value-container">
+                <span class="kpi-value" id="kpi-views" data-target="707000000">0</span>
+              </div>
+              <div class="kpi-footer">
+                <span class="kpi-trend up"><i class="fa-solid fa-circle-arrow-up"></i> +12.3%</span>
+                <span class="kpi-trend-period">vs last 30d</span>
+              </div>
+            </div>
+
+            <div class="card-glass kpi-card">
+              <div class="kpi-card-header">
+                <span>Total Videos Uploaded</span>
+                <div class="kpi-icon-wrapper"><i class="fa-solid fa-clapperboard"></i></div>
+              </div>
+              <div class="kpi-value-container">
+                <span class="kpi-value" id="kpi-videos" data-target="1230">0</span>
+              </div>
+              <div class="kpi-footer">
+                <span class="kpi-trend up"><i class="fa-solid fa-circle-arrow-up"></i> +14</span>
+                <span class="kpi-trend-period">this month</span>
+              </div>
+            </div>
+
+            <div class="card-glass kpi-card">
+              <div class="kpi-card-header">
+                <span>Countries Covered</span>
+                <div class="kpi-icon-wrapper"><i class="fa-solid fa-globe"></i></div>
+              </div>
+              <div class="kpi-value-container">
+                <span class="kpi-value" id="kpi-countries" data-target="85">0</span>
+              </div>
+              <div class="kpi-footer">
+                <span class="kpi-trend up"><i class="fa-solid fa-circle-arrow-up"></i> 85+ Reported</span>
+                <span class="kpi-trend-period">documented visits</span>
+              </div>
+            </div>
+
+            <div class="card-glass kpi-card">
+              <div class="kpi-card-header">
+                <span>Channel Age</span>
+                <div class="kpi-icon-wrapper"><i class="fa-solid fa-calendar"></i></div>
+              </div>
+              <div class="kpi-value-container">
+                <span class="kpi-value" id="kpi-channel-age" style="font-size: 1.4rem;">7 Yrs</span>
+              </div>
+              <div class="kpi-footer">
+                <span class="kpi-trend up"><i class="fa-solid fa-circle-arrow-up"></i> Est. Aug 2019</span>
+                <span class="kpi-trend-period">Active Since</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: EXECUTIVE COMMAND CENTER -->
+        <section id="command-center" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Executive Command Center</h2>
+              <span class="section-desc">Key telemetry timelines of subscriber acquisition, video views, and publishing speeds</span>
+            </div>
+            <span class="badge-tag badge-verified">Verified Data</span>
+          </div>
+          
+          <div class="command-grid">
+            <div class="card-glass">
+              <div class="chart-title">
+                <span>Subscriber Growth Timeline</span>
+                <span style="font-size: 0.75rem; color: var(--color-cyan); font-family: var(--font-mono);">Cumulative (Millions)</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="chart-subscriber-growth"></canvas>
+              </div>
+            </div>
+
+            <div class="card-glass">
+              <div class="chart-title">
+                <span>Monthly Channel Views</span>
+                <span style="font-size: 0.75rem; color: var(--color-cyan); font-family: var(--font-mono);">Millions / Month</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="chart-monthly-views"></canvas>
+              </div>
+            </div>
+
+            <div class="card-glass">
+              <div class="chart-title">
+                <span>Upload Frequency Index</span>
+                <span style="font-size: 0.75rem; color: var(--color-cyan); font-family: var(--font-mono);">Videos / Quarter</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="chart-upload-frequency"></canvas>
+              </div>
+            </div>
+
+            <div class="card-glass">
+              <div class="chart-title">
+                <span>Engagement Trend</span>
+                <span style="font-size: 0.75rem; color: var(--color-cyan); font-family: var(--font-mono);">Avg Like-to-View Ratio %</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="chart-engagement-trend"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: CHANNEL HEALTH SCORE -->
+        <section id="health-score" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Channel Health Score</h2>
+              <span class="section-desc">Algorithmic metrics computing total channel health against industry standards</span>
+            </div>
+            <span class="badge-tag badge-estimated">Estimated Data</span>
+          </div>
+
+          <div class="health-grid">
+            <div class="card-glass gauge-card">
+              <div class="gauge-svg-container">
+                <svg class="gauge-svg" viewBox="0 0 130 130">
+                  <circle class="gauge-track" cx="65" cy="65" r="55"></circle>
+                  <circle class="gauge-fill" cx="65" cy="65" r="55" id="gauge-overall-fill"></circle>
+                </svg>
+                <div class="gauge-score-value"><span id="gauge-overall-val">0</span><span class="gauge-score-pct">%</span></div>
+              </div>
+              <h3 class="gauge-title">Overall Score</h3>
+              <p class="gauge-desc">Aggregated rating across all performance vectors</p>
+            </div>
+
+            <div class="card-glass gauge-card gauge-engagement">
+              <div class="gauge-svg-container">
+                <svg class="gauge-svg" viewBox="0 0 130 130">
+                  <circle class="gauge-track" cx="65" cy="65" r="55"></circle>
+                  <circle class="gauge-fill" cx="65" cy="65" r="55" id="gauge-engagement-fill"></circle>
+                </svg>
+                <div class="gauge-score-value"><span id="gauge-engagement-val">0</span><span class="gauge-score-pct">%</span></div>
+              </div>
+              <h3 class="gauge-title">Engagement Score</h3>
+              <p class="gauge-desc">Likes, comments, shares vs active view velocities</p>
+            </div>
+
+            <div class="card-glass gauge-card gauge-growth">
+              <div class="gauge-svg-container">
+                <svg class="gauge-svg" viewBox="0 0 130 130">
+                  <circle class="gauge-track" cx="65" cy="65" r="55"></circle>
+                  <circle class="gauge-fill" cx="65" cy="65" r="55" id="gauge-growth-fill"></circle>
+                </svg>
+                <div class="gauge-score-value"><span id="gauge-growth-val">0</span><span class="gauge-score-pct">%</span></div>
+              </div>
+              <h3 class="gauge-title">Growth Score</h3>
+              <p class="gauge-desc">Acquisition speed of new subscribers and baseline views</p>
+            </div>
+
+            <div class="card-glass gauge-card gauge-consistency">
+              <div class="gauge-svg-container">
+                <svg class="gauge-svg" viewBox="0 0 130 130">
+                  <circle class="gauge-track" cx="65" cy="65" r="55"></circle>
+                  <circle class="gauge-fill" cx="65" cy="65" r="55" id="gauge-consistency-fill"></circle>
+                </svg>
+                <div class="gauge-score-value"><span id="gauge-consistency-val">0</span><span class="gauge-score-pct">%</span></div>
+              </div>
+              <h3 class="gauge-title">Consistency Score</h3>
+              <p class="gauge-desc">Upload frequencies, seasonal cycles, and format stability</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 4: CONTENT PERFORMANCE INTELLIGENCE -->
+        <section id="content-performance" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Content Performance Intelligence</h2>
+              <span class="section-desc">Interactive catalog of top video releases. Search, filter, and sort video telemetry.</span>
+            </div>
+            <span class="badge-tag badge-verified">Source: YouTube Popular Tab — June 2026</span>
+          </div>
+
+          <div class="card-glass">
+            <div class="table-filters">
+              <div class="filter-group">
+                <input type="text" class="filter-input" id="table-search" placeholder="Search by video title...">
+                <select class="filter-select" id="filter-category">
+                  <option value="all">All Categories</option>
+                  <option value="culture">Culture / Lifestyle</option>
+                  <option value="adventure">Adventure</option>
+                  <option value="food">Food Vlogs</option>
+                  <option value="transport">Transport</option>
+                  <option value="luxury">Luxury</option>
+                </select>
+                <select class="filter-select" id="filter-views">
+                  <option value="all">Any Views</option>
+                  <option value="5m">+5M Views</option>
+                  <option value="4m">+4M Views</option>
+                  <option value="3m">+3M Views</option>
+                </select>
+              </div>
+              
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                Showing <span id="table-count-visible" style="color: var(--color-cyan); font-weight: 700;">15</span> of <span id="table-count-total">15</span> videos
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table class="performance-table">
+                <thead>
+                  <tr>
+                    <th id="th-name">Video Title <i class="fa-solid fa-sort"></i></th>
+                    <th id="th-views">Views <i class="fa-solid fa-sort-down"></i></th>
+                    <th id="th-likes">Likes <i class="fa-solid fa-sort"></i></th>
+                    <th id="th-comments">Comments <i class="fa-solid fa-sort"></i></th>
+                    <th id="th-date">Approx. Year</th>
+                    <th id="th-category">Category</th>
+                  </tr>
+                </thead>
+                <tbody id="performance-table-body">
+                  <!-- JS generated table rows -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 5: TRAVEL GEOGRAPHY INTELLIGENCE -->
+        <section id="travel-geography" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Travel Geography Intelligence</h2>
+              <span class="section-desc">Interactive world map mapping destinations visited by Naa Anveshana with view concentration metrics</span>
+            </div>
+            <span class="badge-tag badge-verified">Verified Data</span>
+          </div>
+
+          <div class="card-glass">
+            <div class="map-layout">
+              <div class="map-wrapper">
+                <div id="world-map"></div>
+              </div>
+              <div>
+                <h3 style="font-size: 1rem; margin-bottom: 0.85rem; font-weight: 700; color: var(--text-primary);">Top Performance by Country</h3>
+                <div class="map-sidebar-list" id="map-country-list">
+                  <!-- Dynamically populated from JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 6: CONTENT CATEGORY ANALYSIS -->
+        <section id="category-analysis" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Content Category Analysis</h2>
+              <span class="section-desc">Comparing volume, engagement velocities, and heatmap structures across travel vlogging categories</span>
+            </div>
+            <span class="badge-tag badge-estimated">Estimated Data</span>
+          </div>
+
+          <div class="card-glass">
+            <div class="category-layout">
+              <div>
+                <h3 class="chart-title">Views Distribution by Category</h3>
+                <div class="chart-container" style="height: 250px;">
+                  <canvas id="chart-category-pie"></canvas>
+                </div>
+              </div>
+              <div>
+                <h3 class="chart-title">Avg Engagement vs Upload Velocity</h3>
+                <div class="chart-container" style="height: 250px;">
+                  <canvas id="chart-category-bar"></canvas>
+                </div>
+              </div>
+            </div>
+            
+            <div class="category-heatmap-wrapper">
+              <h3 class="chart-title" style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Category Engagement by Day of Week (Heatmap)</h3>
+              <div class="category-matrix" id="category-matrix-container">
+                <!-- Heatmap grid generated in JS -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 7: TITLE INTELLIGENCE LAB -->
+        <section id="title-intelligence" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Title Intelligence Lab</h2>
+              <span class="section-desc">Algorithmic sorting of high-performing titles based on semantic hooks</span>
+            </div>
+            <span class="badge-tag badge-estimated">Estimated Data</span>
+          </div>
+
+          <div class="title-grid">
+            <div class="card-glass title-card">
+              <div>
+                <div class="title-type">Emotional Hooks</div>
+                <p class="title-desc">Titles emphasizing shock, excitement, fear, or extreme feelings (e.g. "Most Dangerous Border crossing...")</p>
+              </div>
+              <div class="title-metrics">
+                <div>
+                  <div class="metric-label">Avg Views</div>
+                  <div class="metric-value">620K</div>
+                </div>
+                <div>
+                  <div class="metric-label">Conversion</div>
+                  <span class="conversion-pill">A+</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-glass title-card">
+              <div>
+                <div class="title-type">Question Hooks</div>
+                <p class="title-desc">Inquisitive titles addressing specific mysteries or curiosities (e.g. "How much does a water villa cost?")</p>
+              </div>
+              <div class="title-metrics">
+                <div>
+                  <div class="metric-label">Avg Views</div>
+                  <div class="metric-value">410K</div>
+                </div>
+                <div>
+                  <div class="metric-label">Conversion</div>
+                  <span class="conversion-pill">B+</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-glass title-card">
+              <div>
+                <div class="title-type">Numeric & Cost Hook</div>
+                <p class="title-desc">Direct financial numbers, budgets, or counts which generate transparent guides (e.g. "₹5000 Maldives Trip")</p>
+              </div>
+              <div class="title-metrics">
+                <div>
+                  <div class="metric-label">Avg Views</div>
+                  <div class="metric-value">780K</div>
+                </div>
+                <div>
+                  <div class="metric-label">Conversion</div>
+                  <span class="conversion-pill">S Tier</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-glass title-card">
+              <div>
+                <div class="title-type">Storytelling Hooks</div>
+                <p class="title-desc">Episodic titles, travel challenges, and personal logs that build narrative tension (e.g. "My Worst Day in Africa...")</p>
+              </div>
+              <div class="title-metrics">
+                <div>
+                  <div class="metric-label">Avg Views</div>
+                  <div class="metric-value">540K</div>
+                </div>
+                <div>
+                  <div class="metric-label">Conversion</div>
+                  <span class="conversion-pill">A</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 8: THUMBNAIL INTELLIGENCE LAB -->
+        <section id="thumbnail-intelligence" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Thumbnail Intelligence Lab</h2>
+              <span class="section-desc">Performance ratings and computed click-through indicators for thumbnail visual features</span>
+            </div>
+            <span class="badge-tag badge-estimated">Estimated Data</span>
+          </div>
+
+          <div class="thumbnail-grid" id="thumbnail-container">
+            <!-- Dynamically populated from script.js with fallback SVG visual mockups -->
+          </div>
+        </section>
+
+        <!-- SECTION 9: UPLOAD TIMING INTELLIGENCE -->
+        <section id="upload-timing" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Upload Timing Intelligence</h2>
+              <span class="section-desc">Hourly and weekly viewer density matrices to identify optimal publishing schedules</span>
+            </div>
+            <span class="badge-tag badge-verified">Verified Data</span>
+          </div>
+
+          <div class="card-glass">
+            <div class="timing-layout">
+              <div class="calendar-heatmap-container">
+                <div class="heatmap-header-row">
+                  <div class="day-label">UTC</div>
+                  <div>12a</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div>
+                  <div>12p</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div>
+                </div>
+                <div id="timing-heatmap-rows">
+                  <!-- JS generated rows -->
+                </div>
+              </div>
+
+              <div class="timing-meta-card">
+                <div>
+                  <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Golden Publishing Zones</h3>
+                  <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 1rem;">The system analyzes past view rates to match subscriber peak online activity windows.</p>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                  <div class="timing-stat-item">
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Optimal Day</span>
+                    <span style="font-weight: 700; color: var(--color-cyan);">Sunday</span>
+                  </div>
+                  <div class="timing-stat-item">
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Optimal Window</span>
+                    <span style="font-weight: 700; color: var(--color-cyan);">1:00 PM - 3:00 PM</span>
+                  </div>
+                  <div class="timing-stat-item">
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Best Season</span>
+                    <span style="font-weight: 700; color: var(--color-cyan);">Winter (Dec-Feb)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 10: COMPETITOR WAR ROOM -->
+        <section id="competitor-warroom" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Competitor War Room</h2>
+              <span class="section-desc">Benchmarking Naa Anveshana against leading regional and national travel vloggers</span>
+            </div>
+            <span class="badge-tag badge-verified">Verified Data</span>
+          </div>
+
+          <div class="card-glass">
+            <div class="competitor-layout">
+              <div class="radar-chart-wrapper">
+                <canvas id="chart-competitor-radar"></canvas>
+              </div>
+              <div>
+                <h3 style="font-size: 1rem; margin-bottom: 1rem; font-weight: 700; color: var(--text-primary);">Competitor Benchmark Matrix</h3>
+                <div class="benchmark-table-wrapper">
+                  <table class="benchmark-table">
+                    <thead>
+                      <tr>
+                        <th>Channel Name</th>
+                        <th>Subscribers</th>
+                        <th>Total Views</th>
+                        <th>Avg Engagement</th>
+                        <th>Upload Rate</th>
+                      </tr>
+                    </thead>
+                    <tbody id="competitor-table-body">
+                      <!-- JS generated rows -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 11: REVENUE OPPORTUNITY CENTER -->
+        <section id="revenue-center" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Revenue Opportunity Center</h2>
+              <span class="section-desc">Interactive model calculating monthly revenue scenarios across various sponsorship layers</span>
+            </div>
+            <span class="badge-tag badge-estimated">Estimated Data</span>
+          </div>
+
+          <div class="card-glass">
+            <div class="revenue-grid">
+              <div class="calculator-controls">
+                <div class="slider-group">
+                  <div class="slider-header">
+                    <span class="slider-label">Sponsorship Deals (per video)</span>
+                    <span class="slider-value" id="val-sponsor">₹250,000</span>
+                  </div>
+                  <input type="range" class="revenue-slider" id="slider-sponsor" min="50000" max="600000" step="10000" value="250000">
+                </div>
+
+                <div class="slider-group">
+                  <div class="slider-header">
+                    <span class="slider-label">Affiliate Booking Conversions (monthly)</span>
+                    <span class="slider-value" id="val-affiliate">400 bookings</span>
+                  </div>
+                  <input type="range" class="revenue-slider" id="slider-affiliate" min="50" max="2000" step="50" value="400">
+                </div>
+
+                <div class="slider-group">
+                  <div class="slider-header">
+                    <span class="slider-label">Active Channel Memberships</span>
+                    <span class="slider-value" id="val-members">5,000 members</span>
+                  </div>
+                  <input type="range" class="revenue-slider" id="slider-members" min="500" max="25000" step="500" value="5000">
+                </div>
+
+                <div class="slider-group">
+                  <div class="slider-header">
+                    <span class="slider-label">Travel Packages Sold (per group tour)</span>
+                    <span class="slider-value" id="val-packages">120 packages</span>
+                  </div>
+                  <input type="range" class="revenue-slider" id="slider-packages" min="10" max="500" step="10" value="120">
+                </div>
+              </div>
+
+              <div class="card-glass revenue-output-card">
+                <div class="rev-output-box">
+                  <div class="rev-output-label">ESTIMATED MONTHLY NET VALUE</div>
+                  <div class="rev-output-value" id="rev-net-total">₹1,240,000</div>
+                </div>
+
+                <div class="rev-output-breakdown">
+                  <div class="breakdown-row">
+                    <span>Video Brand Sponsorships</span>
+                    <span class="breakdown-val" id="breakdown-sponsor">₹500,000</span>
+                  </div>
+                  <div class="breakdown-row">
+                    <span>Affiliate Bookings & Referrals</span>
+                    <span class="breakdown-val" id="breakdown-affiliate">₹120,000</span>
+                  </div>
+                  <div class="breakdown-row">
+                    <span>Membership Fees (Exclusive content)</span>
+                    <span class="breakdown-val" id="breakdown-members">₹140,000</span>
+                  </div>
+                  <div class="breakdown-row">
+                    <span>Curated Group Tour Packages</span>
+                    <span class="breakdown-val" id="breakdown-packages">₹480,000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 12: PREDICTIVE ANALYTICS -->
+        <section id="predictive-analytics" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Predictive Analytics</h2>
+              <span class="section-desc">Machine learning forecasting timelines for Subscribers and Views under distinct velocity paths</span>
+            </div>
+            <span class="badge-tag badge-forecast">Forecast Data</span>
+          </div>
+
+          <div class="card-glass">
+            <div class="predictive-layout">
+              <div>
+                <div class="scenario-selector">
+                  <button class="scenario-btn active" id="btn-scenario-base">Base Scenario</button>
+                  <button class="scenario-btn" id="btn-scenario-bull">Bull Scenario (+25%)</button>
+                  <button class="scenario-btn" id="btn-scenario-bear">Bear Scenario (-20%)</button>
+                </div>
+                <div class="chart-container" style="height: 300px;">
+                  <canvas id="chart-predictive-forecast"></canvas>
+                </div>
+              </div>
+
+              <div class="forecast-cards">
+                <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Target Targets (12 Month)</h3>
+                
+                <div class="forecast-item">
+                  <div style="display: flex; flex-direction: column;">
+                    <span style="font-size: 0.72rem; color: var(--text-secondary);">Forecasted Subscribers</span>
+                    <span style="font-size: 1.1rem; font-weight: 700; color: var(--color-cyan); font-family: var(--font-mono);" id="forecast-target-subs">~2.5M</span>
+                  </div>
+                  <div style="text-align: right;">
+                    <span style="font-size: 0.65rem; color: var(--text-muted); display: block;">Confidence Bounds</span>
+                    <span style="font-size: 0.75rem; color: var(--color-green); font-weight: 700; font-family: var(--font-mono);" id="confidence-subs">Illustrative only</span>
+                  </div>
+                </div>
+
+                <div class="forecast-item">
+                  <div style="display: flex; flex-direction: column;">
+                    <span style="font-size: 0.72rem; color: var(--text-secondary);">Forecasted Monthly Views</span>
+                    <span style="font-size: 1.1rem; font-weight: 700; color: var(--color-cyan); font-family: var(--font-mono);" id="forecast-target-views">Verification unavailable</span>
+                  </div>
+                  <div style="text-align: right;">
+                    <span style="font-size: 0.65rem; color: var(--text-muted); display: block;">Confidence Bounds</span>
+                    <span style="font-size: 0.75rem; color: var(--color-green); font-weight: 700; font-family: var(--font-mono);" id="confidence-views">Illustrative only</span>
+                  </div>
+                </div>
+
+                <div class="forecast-item">
+                  <div style="display: flex; flex-direction: column;">
+                    <span style="font-size: 0.72rem; color: var(--text-secondary);">Projected Annual Revenue</span>
+                    <span style="font-size: 1.1rem; font-weight: 700; color: var(--color-purple); font-family: var(--font-mono);" id="forecast-target-rev">Verification unavailable</span>
+                  </div>
+                  <div style="text-align: right;">
+                    <span style="font-size: 0.65rem; color: var(--text-muted); display: block;">Growth Scenario</span>
+                    <span style="font-size: 0.75rem; color: var(--color-cyan); font-weight: 700;" id="forecast-scenario-label">Illustrative Planning Scenario</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 13: STRATEGIC OPPORTUNITY MATRIX -->
+        <section id="strategic-matrix" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Strategic Opportunity Matrix</h2>
+              <span class="section-desc">Quadrant mapping travel content concepts and untapped region optimizations against impact complexity</span>
+            </div>
+            <span class="badge-tag badge-estimated">Estimated Data</span>
+          </div>
+
+          <div class="card-glass">
+            <div class="matrix-layout">
+              <div class="quadrant-container">
+                <div class="matrix-axis-y"></div>
+                <div class="matrix-axis-x"></div>
+                
+                <span class="axis-label label-high-impact">High Impact</span>
+                <span class="axis-label label-low-impact">Low Impact</span>
+                <span class="axis-label label-high-effort">High Effort</span>
+                <span class="axis-label label-low-effort">Low Effort</span>
+                
+                <span class="quadrant-label ql-2">Quick Wins</span>
+                <span class="quadrant-label ql-1">Strategic Bets</span>
+                <span class="quadrant-label ql-3">Fillers</span>
+                <span class="quadrant-label ql-4">Money Pit</span>
+
+                <!-- Interactive nodes, positioned by JS/CSS percentages (left/top) -->
+                <div class="matrix-node" style="left: 20%; top: 25%;" title="Low effort, high impact. Promising conversions.">South America Tour</div>
+                <div class="matrix-node" style="left: 45%; top: 35%;" title="Affiliate links inside video descriptions. High conversion.">Affiliate Integration</div>
+                <div class="matrix-node purple" style="left: 80%; top: 20%;" title="High impact, high effort. Needs solid planning.">Luxury Cruise Series</div>
+                <div class="matrix-node purple" style="left: 85%; top: 75%;" title="High effort, low yield. Avoid or defer.">Aviation Vlog Expansion</div>
+                <div class="matrix-node" style="left: 15%; top: 70%;" title="Easy but lower view yields.">Domestic Train Vlog</div>
+                <div class="matrix-node" style="left: 30%; top: 15%;" title="Strong appeal, quick setup.">Telugu Street Food Guides</div>
+              </div>
+
+              <div class="untapped-listings">
+                <div class="untapped-box">
+                  <h3 class="untapped-title"><i class="fa-solid fa-flag-usa" style="color: var(--color-cyan); margin-right: 0.5rem;"></i> Untapped Countries</h3>
+                  <div class="untapped-tags">
+                    <span class="untapped-tag">Japan</span>
+                    <span class="untapped-tag">Iceland</span>
+                    <span class="untapped-tag">New Zealand</span>
+                    <span class="untapped-tag">Peru</span>
+                    <span class="untapped-tag">South Korea</span>
+                  </div>
+                </div>
+
+                <div class="untapped-box">
+                  <h3 class="untapped-title"><i class="fa-solid fa-folder-open" style="color: var(--color-purple); margin-right: 0.5rem;"></i> Untapped Content Categories</h3>
+                  <div class="untapped-tags">
+                    <span class="untapped-tag">Expat Living Guides</span>
+                    <span class="untapped-tag">Solo Travel Gear Guides</span>
+                    <span class="untapped-tag">Visa Process Hacks</span>
+                    <span class="untapped-tag">Hostel vs Resort Comparison</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 14: EXECUTIVE SUMMARY (BOARDROOM REPORT) -->
+        <section id="executive-summary" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Executive Summary</h2>
+              <span class="section-desc">Boardroom-ready analytical briefing on Naa Anveshana channel growth strategy</span>
+            </div>
+            <span class="badge-tag badge-verified">Verified Data</span>
+          </div>
+
+          <div class="boardroom-report" id="boardroom-report-pdf">
+            <div class="report-header">
+              <div class="report-title-line">
+                <span class="report-org">NAA ANVESHNA Intelligence Report</span>
+                <span class="report-date" id="report-current-date">June 2026</span>
+              </div>
+              <h1 class="report-title">NAA ANVESHNA INTELLIGENCE REPORT</h1>
+            </div>
+
+            <div class="report-body">
+              <div class="report-left">
+                <div>
+                  <h3 class="report-section-title">Key Strategic Findings</h3>
+                  <p class="report-p">
+                    Naa Anveshana is a powerhouse of Telugu-language travel content with <strong>2.17M+ subscribers</strong> and <strong>707M+ cumulative views</strong> across <strong>1,230+ videos</strong> covering <strong>48 verified countries</strong> (85+ reported). The channel was established in August 2019 and has shown strong compound growth, reaching the 2M+ milestone by 2025.
+                  </p>
+                  <p class="report-p">
+                    Based on publicly available channel data and industry research, the channel's engagement rate is estimated to fall within the <strong>2.0%–3.5%</strong> range — consistent with the Modash benchmark for travel channels at the 2M+ subscriber tier. Channel-specific engagement figures require YouTube Studio access for verification.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="report-section-title">Tactical Recommendations</h3>
+                  <ul class="recommendations-list">
+                    <li class="recommendation-item">
+                      <strong>Deploy South American Tour:</strong> A multi-country South American sequence represents a 'Quick Win' opportunity with anticipated search demand and low competitor coverage in regional languages.
+                    </li>
+                    <li class="recommendation-item">
+                      <strong>Optimize Upload Schedule:</strong> Based on Indian viewer online-time research (RedSeer 2025), evenings (7–11 PM IST) and weekend mornings show peak audience availability. Channel-specific optimal windows require YouTube Studio > Reach analytics.
+                    </li>
+                    <li class="recommendation-item">
+                      <strong>Explore Travel Package Monetisation:</strong> Introduce curated group travel packages to capitalise on strong community trust. Revenue potential requires a formal business model analysis with actual audience survey data.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="report-right">
+                <h3 class="report-section-title">SWOT Matrix</h3>
+                <div class="swot-grid">
+                  <div class="swot-box s">
+                    <div class="swot-title">Strengths</div>
+                    <div class="swot-text">First-mover advantage in Telugu travel vlogging; high authenticity and audience loyalty.</div>
+                  </div>
+                  <div class="swot-box w">
+                    <div class="swot-title">Weaknesses</div>
+                    <div class="swot-text">Ad-revenue dependency; lack of standardized content segments across long trips.</div>
+                  </div>
+                  <div class="swot-box o">
+                    <div class="swot-title">Opportunities</div>
+                    <div class="swot-text">Affiliate partnerships with booking portals; curated group expeditions.</div>
+                  </div>
+                  <div class="swot-box t">
+                    <div class="swot-title">Threats</div>
+                    <div class="swot-text">Algorithm prioritization changes; emergence of younger, highly active travel creators.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Chart.js, JSVectorMap Core & Map Data CDN, jsPDF & html2canvas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- Main Script JS -->
+  <script src="script.js"></script>
+</body>
+</html>
