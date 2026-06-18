@@ -25,7 +25,7 @@ const CHANNEL_KPIS = {
   subscribers: 2175000,        // [VERIFIED] — hypeauditor + speakrj consensus
   totalViews: 707000000,       // [VERIFIED] — viewstats + videoamigo
   totalVideos: 1230,           // [VERIFIED] — viewstats + speakrj
-  countriesCovered: 85,        // [VERIFIED] — channel-reported 85+ countries visited
+  countriesCovered: 92,        // [AUDITED June 2026] — 92 countries Verified (A+), 33 additional Unverified/Possible
   channelStart: 'August 2019'  // [VERIFIED] — vidiq channel metadata
 };
 
@@ -78,7 +78,7 @@ const travelMapData = {
   'RS': { label: '🇷🇸 Serbia — Eastern Europe coverage.', region: 'Europe', status: 'Verified', year: '2023' },
   'PT': { label: '🇵🇹 Portugal — Europe series confirmed.', region: 'Europe', status: 'Verified', year: '2023' },
   'ES': { label: '🇪🇸 Spain — Europe series confirmed.', region: 'Europe', status: 'Verified', year: '2023' },
-  'NL': { label: '🇳🇱 Netherlands — Europe series confirmed.', region: 'Europe', status: 'Verified', year: '2023' },
+  'NL': { label: '🇱🇳 Netherlands — Europe series confirmed.', region: 'Europe', status: 'Verified', year: '2023' },
   'RU': { label: '🇷🇺 Russia — Arctic Cruise. Northern region journey.', region: 'Europe/Asia', status: 'Verified', year: '2024' },
   // AMERICAS
   'BR': { label: '🇧🇷 Brazil — Sleeping in Amazon Rainforest (5.5M views). Most-viewed destination vlog.', region: 'Americas', status: 'Verified', year: '2021' },
@@ -1165,7 +1165,7 @@ function updateRevenueCalculations() {
   document.getElementById('rev-net-total').innerText = formatCurrency(totalNet);
 }
 
-// 8. PREDICTIVE SCENARIO SELECTORS
+// 8. PREDICTIVE SCENARIOS
 function selectPredictiveScenario(scenarioKey) {
   activePredictiveScenario = scenarioKey;
   
@@ -1486,6 +1486,272 @@ function renderUnderperformingContent() {
   tableBody.innerHTML = html;
 }
 
+// ---------------------------------------------------------------------------
+// 15. HERO MAP — Full-Screen Global Journey (cinematic experience)
+// Timeline-aware map showing countries chronologically from 2019–2026.
+// Layer 1: Countries Explored (Verified A+)
+// Layer 2: Opportunity Zones (Unverified / Possible)
+// ---------------------------------------------------------------------------
+let heroMapInstance = null;
+let currentLayer = 'explored';
+
+// Countries grouped by year of first confirmed appearance
+const countryYearData = {
+  2019: ['IN', 'TH', 'ID', 'AE', 'MY', 'SG'],
+  2020: ['VN', 'KH', 'LA', 'NP', 'PH', 'JP'],
+  2021: ['BR', 'PE', 'MX', 'PA', 'BO', 'US', 'CA', 'EG', 'TR', 'DE', 'CH'],
+  2022: ['MG', 'KE', 'TZ', 'ET', 'SO', 'DJ', 'ZA', 'UG', 'RW', 'SS', 'BW',
+         'AF', 'PK', 'FJ', 'AU', 'TO', 'TV', 'HK', 'KR'],
+  2023: ['CN', 'IR', 'AZ', 'BH', 'ZW', 'MA', 'DE', 'IT', 'BE', 'PT', 'ES',
+         'NL', 'RS', 'CH', 'NO', 'GB', 'FR', 'NL', 'GR', 'PL'],
+  2024: ['RU', 'AQ', 'KP', 'JP', 'TW', 'KZ', 'UZ', 'GE', 'AM', 'JO', 'IL',
+         'SA', 'QA', 'OM', 'LB', 'ID', 'AU'],
+  2025: ['IN', 'CN', 'TH', 'EG', 'BR', 'PE', 'ZW'],
+  2026: ['IN', 'AE', 'CN', 'TH', 'EG']
+};
+
+// Opportunity countries (unverified / high-potential)
+const opportunityCountries = {
+  'NG': 'opportunity', 'GH': 'opportunity', 'SN': 'opportunity', 'CI': 'opportunity',
+  'CM': 'opportunity', 'ML': 'opportunity', 'NE': 'opportunity', 'BF': 'opportunity',
+  'CU': 'opportunity', 'JM': 'opportunity', 'DO': 'opportunity', 'HT': 'opportunity',
+  'GT': 'opportunity', 'HN': 'opportunity', 'NI': 'opportunity', 'SV': 'opportunity',
+  'VE': 'opportunity', 'CO': 'opportunity', 'EC': 'opportunity', 'PY': 'opportunity',
+  'UY': 'opportunity', 'MN': 'opportunity', 'AF': 'opportunity', 'YE': 'opportunity',
+  'SY': 'opportunity', 'IQ': 'opportunity', 'NZ': 'opportunity', 'PG': 'opportunity',
+  'VU': 'opportunity', 'WS': 'opportunity', 'TO': 'opportunity'
+};
+
+function getAllVisitedUpToYear(year) {
+  const visited = new Set();
+  for (let y = 2019; y <= year; y++) {
+    const codes = countryYearData[y] || [];
+    codes.forEach(c => visited.add(c));
+  }
+  return visited;
+}
+
+function buildHeroMapValues(year, layer) {
+  const values = {};
+  if (layer === 'explored') {
+    const visited = getAllVisitedUpToYear(year);
+    visited.forEach(code => { values[code] = 'visited'; });
+  } else if (layer === 'opportunity') {
+    // Show all visited as dim + opportunity zones highlighted
+    const visited = getAllVisitedUpToYear(year);
+    visited.forEach(code => { values[code] = 'visited'; });
+    Object.keys(opportunityCountries).forEach(code => {
+      if (!visited.has(code)) values[code] = 'opportunity';
+    });
+  }
+  return values;
+}
+
+function initHeroMap() {
+  const container = document.getElementById('hero-world-map');
+  if (!container || typeof jsVectorMap === 'undefined') return;
+
+  // Build initial values (all years)
+  const initValues = buildHeroMapValues(2026, 'explored');
+
+  heroMapInstance = new jsVectorMap({
+    selector: '#hero-world-map',
+    map: 'world',
+    backgroundColor: 'transparent',
+    draggable: true,
+    zoomButtons: false,
+    zoomOnScroll: false,
+    regionStyle: {
+      initial: {
+        fill: 'rgba(255, 255, 255, 0.04)',
+        stroke: 'rgba(0, 240, 255, 0.06)',
+        strokeWidth: 0.5
+      },
+      hover: {
+        fill: 'rgba(0, 240, 255, 0.3)',
+        cursor: 'pointer'
+      }
+    },
+    series: {
+      regions: [{
+        attribute: 'fill',
+        scale: {
+          visited: 'rgba(0, 240, 255, 0.55)',
+          opportunity: 'rgba(255, 152, 0, 0.45)',
+          unvisited: 'rgba(255, 255, 255, 0.04)'
+        },
+        values: initValues
+      }]
+    },
+    showTooltip: false
+  });
+
+  // ── CUSTOM TOOLTIP ────────────────────────────────────────────────────────
+  const COUNTRY_NAMES_HERO = {
+    AF:'Afghanistan',AL:'Albania',DZ:'Algeria',AO:'Angola',AQ:'Antarctica',
+    AR:'Argentina',AM:'Armenia',AU:'Australia',AT:'Austria',AZ:'Azerbaijan',
+    BH:'Bahrain',BD:'Bangladesh',BE:'Belgium',BO:'Bolivia',BR:'Brazil',
+    BW:'Botswana',BF:'Burkina Faso',KH:'Cambodia',CM:'Cameroon',CA:'Canada',
+    CL:'Chile',CN:'China',CO:'Colombia',CR:'Costa Rica',HR:'Croatia',
+    CU:'Cuba',CY:'Cyprus',CZ:'Czech Republic',DK:'Denmark',DJ:'Djibouti',
+    DO:'Dominican Republic',EC:'Ecuador',EG:'Egypt',SV:'El Salvador',
+    ET:'Ethiopia',FJ:'Fiji',FR:'France',DE:'Germany',GH:'Ghana',GR:'Greece',
+    GT:'Guatemala',GN:'Guinea',HT:'Haiti',HN:'Honduras',HK:'Hong Kong',
+    HU:'Hungary',IS:'Iceland',IN:'India',ID:'Indonesia',IR:'Iran',
+    IQ:'Iraq',IE:'Ireland',IL:'Israel',IT:'Italy',JM:'Jamaica',JP:'Japan',
+    JO:'Jordan',KZ:'Kazakhstan',KE:'Kenya',KP:'North Korea',KR:'South Korea',
+    KW:'Kuwait',KG:'Kyrgyzstan',LA:'Laos',LB:'Lebanon',LR:'Liberia',
+    LY:'Libya',MG:'Madagascar',MY:'Malaysia',MV:'Maldives',ML:'Mali',
+    MX:'Mexico',MD:'Moldova',MN:'Mongolia',MA:'Morocco',MM:'Myanmar',
+    NA:'Namibia',NP:'Nepal',NL:'Netherlands',NZ:'New Zealand',
+    NI:'Nicaragua',NE:'Niger',NG:'Nigeria',NO:'Norway',OM:'Oman',
+    PK:'Pakistan',PA:'Panama',PG:'Papua New Guinea',PY:'Paraguay',
+    PE:'Peru',PH:'Philippines',PL:'Poland',PT:'Portugal',QA:'Qatar',
+    RO:'Romania',RU:'Russia',RW:'Rwanda',SA:'Saudi Arabia',SN:'Senegal',
+    RS:'Serbia',SG:'Singapore',SK:'Slovakia',SI:'Slovenia',SO:'Somalia',
+    ZA:'South Africa',SS:'South Sudan',ES:'Spain',LK:'Sri Lanka',
+    SE:'Sweden',CH:'Switzerland',SY:'Syria',TW:'Taiwan',TJ:'Tajikistan',
+    TZ:'Tanzania',TH:'Thailand',TG:'Togo',TO:'Tonga',TN:'Tunisia',
+    TR:'Turkey',TM:'Turkmenistan',TV:'Tuvalu',UG:'Uganda',UA:'Ukraine',
+    AE:'United Arab Emirates',GB:'United Kingdom',US:'United States',
+    UZ:'Uzbekistan',VE:'Venezuela',VN:'Vietnam',YE:'Yemen',ZM:'Zambia',ZW:'Zimbabwe',GE:'Georgia',AM:'Armenia',TW:'Taiwan'
+  };
+
+  const heroTip = document.createElement('div');
+  heroTip.id = 'hero-map-tooltip';
+  heroTip.style.cssText =
+    'position:fixed;z-index:99999;pointer-events:none;display:none;' +
+    'min-width:160px;max-width:280px;' +
+    'background:rgba(4,6,14,0.97);' +
+    'border:1px solid rgba(0,240,255,0.25);border-radius:10px;' +
+    'box-shadow:0 8px 32px rgba(0,240,255,0.15),0 2px 10px rgba(0,0,0,0.6);' +
+    'font-family:Outfit,sans-serif;backdrop-filter:blur(14px);' +
+    'opacity:0;transition:opacity 0.15s ease;';
+  document.body.appendChild(heroTip);
+
+  let heroMouseX = 0, heroMouseY = 0;
+  const currentValues = buildHeroMapValues(2026, 'explored');
+
+  container.addEventListener('mousemove', (e) => {
+    heroMouseX = e.clientX;
+    heroMouseY = e.clientY;
+    if (heroTip.style.display === 'block') repositionHeroTip();
+  });
+
+  function repositionHeroTip() {
+    const gap = 18, w = heroTip.offsetWidth || 180, h = heroTip.offsetHeight || 70;
+    const vw = window.innerWidth, vh = window.innerHeight;
+    let left = heroMouseX + gap, top = heroMouseY + gap;
+    if (left + w > vw - 8) left = heroMouseX - w - gap;
+    if (top + h > vh - 8) top = heroMouseY - h - gap;
+    heroTip.style.left = left + 'px';
+    heroTip.style.top = top + 'px';
+  }
+
+  let heroHideTimeout = null;
+
+  function showHeroTip(code) {
+    if (heroHideTimeout) { clearTimeout(heroHideTimeout); heroHideTimeout = null; }
+    const name = COUNTRY_NAMES_HERO[code] || code;
+    const mapData = travelMapData[code];
+    const isOpportunity = opportunityCountries[code];
+    const slider = document.getElementById('timeline-slider');
+    const year = slider ? parseInt(slider.value) : 2026;
+    const visitedSet = getAllVisitedUpToYear(year);
+    const isVisited = visitedSet.has(code);
+
+    let innerHtml = '';
+    if (isVisited && mapData) {
+      innerHtml = `
+        <div style="padding:.5rem .85rem .4rem;border-bottom:1px solid rgba(0,240,255,0.1)">
+          <div style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,240,255,.65);margin-bottom:.2rem">✈ Visited Destination</div>
+          <div style="font-size:1rem;font-weight:800;color:#fff">${name}</div>
+        </div>
+        <div style="padding:.4rem .85rem .6rem">
+          <div style="font-size:.7rem;color:#94a3b8;margin-bottom:.2rem">
+            <span style="color:#00e676;font-weight:700">${mapData.year || 'Confirmed'}</span> &nbsp;·&nbsp; ${mapData.region || ''}
+          </div>
+          <div style="font-size:.68rem;color:#cbd5e1;line-height:1.4">${mapData.label || ''}</div>
+        </div>`;
+    } else if (isOpportunity) {
+      innerHtml = `
+        <div style="padding:.55rem .85rem .6rem">
+          <div style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,152,0,.8);margin-bottom:.2rem">◆ Opportunity Zone</div>
+          <div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:.2rem">${name}</div>
+          <div style="font-size:.68rem;color:#ffa726">High-potential future destination</div>
+        </div>`;
+    } else {
+      innerHtml = `
+        <div style="padding:.55rem .85rem .6rem">
+          <div style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,87,34,.7);margin-bottom:.2rem">⬡ Not Yet Visited</div>
+          <div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:.2rem">${name}</div>
+          <div style="font-size:.68rem;color:#ff7043">Potential expansion destination</div>
+        </div>`;
+    }
+
+    heroTip.innerHTML = innerHtml;
+    heroTip.style.display = 'block';
+    repositionHeroTip();
+    heroTip.style.opacity = '1';
+  }
+
+  function hideHeroTip() {
+    heroTip.style.opacity = '0';
+    if (heroHideTimeout) clearTimeout(heroHideTimeout);
+    heroHideTimeout = setTimeout(() => { heroTip.style.display = 'none'; }, 150);
+  }
+
+  container.addEventListener('mouseover', (e) => {
+    if (e.target && e.target.classList.contains('jvm-region')) {
+      showHeroTip(e.target.getAttribute('data-code'));
+    }
+  });
+  container.addEventListener('mouseout', (e) => {
+    if (e.target && e.target.classList.contains('jvm-region')) hideHeroTip();
+  });
+  container.addEventListener('mouseleave', hideHeroTip);
+
+  // ── TIMELINE SLIDER ───────────────────────────────────────────────────────
+  const slider = document.getElementById('timeline-slider');
+  const yearDisplay = document.getElementById('timeline-year-display');
+  const countDisplay = document.getElementById('timeline-country-count');
+
+  function updateHeroMapByYear(year) {
+    const values = buildHeroMapValues(year, currentLayer);
+    const count = getAllVisitedUpToYear(year).size;
+    if (yearDisplay) yearDisplay.innerHTML = `2019 &rarr; ${year}`;
+    if (countDisplay) countDisplay.textContent = count;
+    if (heroMapInstance && heroMapInstance.series && heroMapInstance.series.regions[0]) {
+      heroMapInstance.series.regions[0].setValues(values);
+    }
+  }
+
+  if (slider) {
+    slider.addEventListener('input', () => updateHeroMapByYear(parseInt(slider.value)));
+    // Initial count
+    const initCount = getAllVisitedUpToYear(2026).size;
+    if (countDisplay) countDisplay.textContent = initCount;
+  }
+
+  // ── LAYER TOGGLE ──────────────────────────────────────────────────────────
+  document.querySelectorAll('.map-layer-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.map-layer-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentLayer = btn.getAttribute('data-layer');
+      const year = slider ? parseInt(slider.value) : 2026;
+      updateHeroMapByYear(year);
+    });
+  });
+
+  // Resize support
+  window.addEventListener('resize', () => {
+    if (heroMapInstance && typeof heroMapInstance.updateSize === 'function') {
+      heroMapInstance.updateSize();
+    }
+  });
+}
+
 // 14. INITIALIZATION ENTRY POINT
 document.addEventListener('DOMContentLoaded', () => {
   // Update Date in Executive boardroom briefing
@@ -1573,4 +1839,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFullScreenToggle();
   setupGlobalSearch();
   setupPresentationMode();
+
+  // Hero map (cinematic fullscreen)
+  initHeroMap();
 });

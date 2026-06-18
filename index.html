@@ -29,10 +29,16 @@
       </div>
       
       <nav class="nav-links">
+        <a href="#global-journey" class="nav-link active" data-sec="global-journey">
+          <i class="fa-solid fa-earth-americas"></i><span>Global Journey</span>
+        </a>
+        <a href="#journey-story" class="nav-link" data-sec="journey-story">
+          <i class="fa-solid fa-book-open"></i><span>Journey Story</span>
+        </a>
         <a href="#executive-summary" class="nav-link" data-sec="executive-summary">
           <i class="fa-solid fa-file-invoice"></i><span>Executive Summary</span>
         </a>
-        <a href="#hero-dashboard" class="nav-link active" data-sec="hero-dashboard">
+        <a href="#hero-dashboard" class="nav-link" data-sec="hero-dashboard">
           <i class="fa-solid fa-chart-line"></i><span>Hero Dashboard</span>
         </a>
         <a href="#command-center" class="nav-link" data-sec="command-center">
@@ -48,7 +54,7 @@
           <i class="fa-solid fa-arrow-trend-down"></i><span>Underperforming Content</span>
         </a>
         <a href="#travel-geography" class="nav-link" data-sec="travel-geography">
-          <i class="fa-solid fa-earth-americas"></i><span>Travel Geography</span>
+          <i class="fa-solid fa-map"></i><span>Travel Geography</span>
         </a>
         <a href="#category-analysis" class="nav-link" data-sec="category-analysis">
           <i class="fa-solid fa-pie-chart"></i><span>Category Analysis</span>
@@ -80,9 +86,9 @@
       </nav>
 
       <div class="sidebar-footer">
-        <div>ANVESHANA OS v2.4</div>
-        <div>Boardroom Intelligence</div>
-        <div style="color: var(--color-cyan); margin-top: 0.25rem;"><i class="fa-solid fa-circle" style="font-size: 0.5rem; vertical-align: middle;"></i> Live Forecast Mode</div>
+        <div>ANVESHANA OS v3.0</div>
+        <div>Travel Intelligence Report</div>
+        <div style="color: var(--color-cyan); margin-top: 0.25rem;"><i class="fa-solid fa-circle" style="font-size: 0.5rem; vertical-align: middle;"></i> 92 Countries Verified</div>
       </div>
     </aside>
 
@@ -110,7 +116,235 @@
 
       <!-- PAGE WRAPPER / SECTIONS -->
       <div class="content-wrapper">
-        
+
+        <!-- SECTION 0: GLOBAL JOURNEY HERO MAP (CINEMATIC HERO) -->
+        <section id="global-journey" class="section-container hero-journey-section">
+
+          <!-- Cinematic Map -->          
+          <div class="hero-map-fullscreen">
+
+            <!-- Overlaid Headline Content -->
+            <div class="hero-map-overlay">
+              <div class="hero-overlay-top">
+                <div class="hero-eyebrow">
+                  <span class="hero-eyebrow-dot"></span>
+                  <span>TRAVEL INTELLIGENCE REPORT &mdash; JUNE 2026</span>
+                  <span class="hero-eyebrow-dot"></span>
+                </div>
+                <h1 class="hero-title">NAA ANVESHANA</h1>
+                <p class="hero-subtitle">The World's Journey Through <em>Telugu Eyes</em></p>
+                <p class="hero-desc">Exploring the world through culture, people, adventure and storytelling &mdash;
+                from the peaks of Kilimanjaro to the ice of Antarctica.</p>
+              </div>
+
+              <!-- Primary Metric Pill -->
+              <div class="hero-country-pill">
+                <span class="hero-country-number" id="hero-country-counter">92</span>
+                <div class="hero-country-label">
+                  <span>Countries Explored</span>
+                  <span class="hero-badge-verified"><i class="fa-solid fa-circle-check"></i> 92 Verified · 33 Documented Possible</span>
+                </div>
+              </div>
+
+              <!-- Secondary Metrics Row -->
+              <div class="hero-stats-row">
+                <div class="hero-stat">
+                  <span class="hero-stat-value">707M+</span>
+                  <span class="hero-stat-label">Total Views</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                  <span class="hero-stat-value">2.17M</span>
+                  <span class="hero-stat-label">Subscribers</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                  <span class="hero-stat-value">1,230+</span>
+                  <span class="hero-stat-label">Videos</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                  <span class="hero-stat-value">7 Yrs</span>
+                  <span class="hero-stat-label">Active Since 2019</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="hero-scroll-indicator">
+              <span>Scroll to explore analytics</span>
+              <i class="fa-solid fa-chevron-down hero-scroll-chevron"></i>
+            </div>
+
+            <!-- The actual jsvectormap hero container -->
+            <div id="hero-world-map"></div>
+
+            <!-- Map Layer Control -->
+            <div class="map-layer-controls">
+              <div class="map-layer-title"><i class="fa-solid fa-layer-group"></i> Map Layers</div>
+              <button class="map-layer-btn active" id="layer-btn-explored" data-layer="explored">
+                <span class="layer-dot explored"></span> Countries Explored
+              </button>
+              <button class="map-layer-btn" id="layer-btn-opportunity" data-layer="opportunity">
+                <span class="layer-dot opportunity"></span> Opportunity Zones
+              </button>
+            </div>
+
+            <!-- Timeline Slider -->
+            <div class="map-timeline-control">
+              <div class="timeline-header">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Journey Timeline</span>
+                <span class="timeline-year-display" id="timeline-year-display">2019 &rarr; 2026</span>
+              </div>
+              <div class="timeline-slider-wrapper">
+                <span class="timeline-min-label">2019</span>
+                <input type="range" class="timeline-slider" id="timeline-slider" min="2019" max="2026" step="1" value="2026">
+                <span class="timeline-max-label">2026</span>
+              </div>
+              <div class="timeline-count-display">
+                Showing <span id="timeline-country-count">47</span> countries as of selected year
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: THE GLOBAL JOURNEY STORY -->
+        <section id="journey-story" class="section-container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">The Global Journey</h2>
+              <span class="section-desc">A 7-year Telugu odyssey across every continent on Earth</span>
+            </div>
+            <span class="badge-tag badge-verified">92 Countries Verified — Audit June 2026</span>
+          </div>
+
+          <!-- 60-Second Story Grid -->
+          <div class="journey-story-grid">
+
+            <!-- WHO: Identity Card -->
+            <div class="card-glass journey-story-card journey-identity">
+              <div class="journey-story-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+              <h3 class="journey-story-card-title">Who is Naa Anveshana?</h3>
+              <p class="journey-story-card-body">Anvesh Chinni is a Telugu travel creator who left a conventional career to document the world in his native language. Since 2019, he has built India's premier Telugu travel channel &mdash; a raw, authentic, and deeply human record of global culture, food, and adventure.</p>
+              <div class="journey-story-card-stat">
+                <span class="journey-story-stat-val">2.17M</span>
+                <span class="journey-story-stat-label">Telugu-speaking subscribers worldwide</span>
+              </div>
+            </div>
+
+            <!-- HOW LARGE: Scale Card -->
+            <div class="card-glass journey-story-card journey-scale">
+              <div class="journey-story-icon journey-icon-cyan"><i class="fa-solid fa-globe"></i></div>
+              <h3 class="journey-story-card-title">How Large is the Journey?</h3>
+              <div class="journey-scale-grid">
+                <div class="journey-scale-stat">
+                  <span class="journey-scale-val">92</span>
+                  <span class="journey-scale-lbl">Verified Countries</span>
+                </div>
+                <div class="journey-scale-stat">
+                  <span class="journey-scale-val">7</span>
+                  <span class="journey-scale-lbl">Continents</span>
+                </div>
+                <div class="journey-scale-stat">
+                  <span class="journey-scale-val">707M</span>
+                  <span class="journey-scale-lbl">Total Views</span>
+                </div>
+                <div class="journey-scale-stat">
+                  <span class="journey-scale-val">1,230+</span>
+                  <span class="journey-scale-lbl">Videos Published</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- UNIQUE: What Makes it Special -->
+            <div class="card-glass journey-story-card journey-unique">
+              <div class="journey-story-icon journey-icon-purple"><i class="fa-solid fa-star"></i></div>
+              <h3 class="journey-story-card-title">What Makes It Unique?</h3>
+              <ul class="journey-unique-list">
+                <li><i class="fa-solid fa-check"></i> <strong>Frontier destinations:</strong> North Korea, Antarctica, Somalia, Tuvalu</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Telugu-first storytelling</strong> for a globally underserved audience</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Authentic access:</strong> Not a luxury travel brand — real costs, real borders, real risk</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Cultural depth:</strong> Tribal villages, hyperinflation markets, gold mines</li>
+              </ul>
+            </div>
+
+            <!-- WHY WATCH: Audience Behavior -->
+            <div class="card-glass journey-story-card journey-why">
+              <div class="journey-story-icon journey-icon-amber"><i class="fa-solid fa-fire"></i></div>
+              <h3 class="journey-story-card-title">Why Do People Watch?</h3>
+              <p class="journey-story-card-body">The audience watches not for escapism but for <strong>vicarious exploration</strong> &mdash; they see themselves in a Telugu-speaking traveler navigating a world that rarely speaks their language. Cost breakdowns, border crossings, and cultural shocks create an unscripted authenticity that polished travel channels cannot replicate.</p>
+              <div class="journey-story-card-stat">
+                <span class="journey-story-stat-val">5.1M avg</span>
+                <span class="journey-story-stat-label">views on top cultural destination videos</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Regional Performance Row -->
+          <div class="journey-region-row">
+            <h3 class="journey-region-title"><i class="fa-solid fa-chart-bar"></i> Regional Performance Intelligence</h3>
+            <div class="journey-region-grid">
+              <div class="journey-region-card journey-region-top">
+                <div class="region-card-header">
+                  <i class="fa-solid fa-trophy"></i>
+                  <span>Most Successful Regions</span>
+                </div>
+                <div class="region-list">
+                  <div class="region-item"><span class="region-rank">01</span><span class="region-name">Africa</span><span class="region-badge badge-verified-sm">Viral Hub</span></div>
+                  <div class="region-item"><span class="region-rank">02</span><span class="region-name">Asia (East)</span><span class="region-badge badge-verified-sm">Highest Vol.</span></div>
+                  <div class="region-item"><span class="region-rank">03</span><span class="region-name">South America</span><span class="region-badge badge-verified-sm">Adventure</span></div>
+                  <div class="region-item"><span class="region-rank">04</span><span class="region-name">Middle East</span><span class="region-badge badge-verified-sm">Culture</span></div>
+                </div>
+              </div>
+              <div class="journey-region-card">
+                <div class="region-card-header">
+                  <i class="fa-solid fa-rocket"></i>
+                  <span>Fastest Growing Regions</span>
+                </div>
+                <div class="region-list">
+                  <div class="region-item"><span class="region-rank">01</span><span class="region-name">Central Asia</span><span class="region-badge badge-opportunity">↑ Emerging</span></div>
+                  <div class="region-item"><span class="region-rank">02</span><span class="region-name">Pacific Islands</span><span class="region-badge badge-opportunity">↑ Niche</span></div>
+                  <div class="region-item"><span class="region-rank">03</span><span class="region-name">Eastern Europe</span><span class="region-badge badge-opportunity">↑ Growing</span></div>
+                  <div class="region-item"><span class="region-rank">04</span><span class="region-name">Antarctica</span><span class="region-badge badge-opportunity">↑ Viral</span></div>
+                </div>
+              </div>
+              <div class="journey-region-card">
+                <div class="region-card-header">
+                  <i class="fa-solid fa-binoculars"></i>
+                  <span>Untapped Opportunities</span>
+                </div>
+                <div class="region-list">
+                  <div class="region-item"><span class="region-rank">01</span><span class="region-name">West Africa</span><span class="region-badge badge-opportunity-alt">33 countries pending</span></div>
+                  <div class="region-item"><span class="region-rank">02</span><span class="region-name">Caribbean</span><span class="region-badge badge-opportunity-alt">Hindi/Telugu gap</span></div>
+                  <div class="region-item"><span class="region-rank">03</span><span class="region-name">Central America</span><span class="region-badge badge-opportunity-alt">Underserved</span></div>
+                  <div class="region-item"><span class="region-rank">04</span><span class="region-name">Scandinavia</span><span class="region-badge badge-opportunity-alt">Luxury potential</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Governance Footer -->
+          <div class="data-source-footer">
+            <div class="dsf-item">
+              <span class="dsf-label">Country Audit Source</span>
+              <span class="dsf-value">YouTube Public Playlists · Video Metadata · Public Biographies</span>
+            </div>
+            <div class="dsf-item">
+              <span class="dsf-label">Verified Count</span>
+              <span class="dsf-value">92 Countries (A+ Evidence)</span>
+            </div>
+            <div class="dsf-item">
+              <span class="dsf-label">Possible Count</span>
+              <span class="dsf-value">33 Additional (Unverified / Rumored)</span>
+            </div>
+            <div class="dsf-item">
+              <span class="dsf-label">Audit Date</span>
+              <span class="dsf-value">June 18, 2026</span>
+            </div>
+          </div>
+        </section>
+
         <!-- SECTION 1: HERO DASHBOARD -->
         <section id="hero-dashboard" class="section-container">
           <div class="section-header">
@@ -169,15 +403,15 @@
 
             <div class="card-glass kpi-card">
               <div class="kpi-card-header">
-                <span>Countries Covered</span>
+                <span>Countries Explored</span>
                 <div class="kpi-icon-wrapper"><i class="fa-solid fa-globe"></i></div>
               </div>
               <div class="kpi-value-container">
-                <span class="kpi-value" id="kpi-countries" data-target="85">0</span>
+                <span class="kpi-value" id="kpi-countries" data-target="92">0</span>
               </div>
               <div class="kpi-footer">
-                <span class="kpi-trend up"><i class="fa-solid fa-circle-arrow-up"></i> 85+ Reported</span>
-                <span class="kpi-trend-period">documented visits</span>
+                <span class="kpi-trend up"><i class="fa-solid fa-circle-check"></i> 92 Verified</span>
+                <span class="kpi-trend-period">Audited June 2026</span>
               </div>
             </div>
 
