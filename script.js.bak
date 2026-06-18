@@ -121,21 +121,44 @@ const topCountriesList = [
 // Categories assigned by content analysis of video title & known topic.
 // ---------------------------------------------------------------------------
 const videosDataset = [
-  { name: 'Naa Anveshana Marriage And Divorce',                                          views: 7000000,  likes: 154000, comments: 12500, date: '~2023–2024', category: 'culture', country: 'India', titlePattern: 'Personal Update', thumbPattern: 'Emotional/Story' },
-  { name: 'Andhra Pradesh Politics | Zimbabwe Hyperinflation Story Explained',           views: 6200000,  likes: 128000, comments: 8400,  date: '~2023–2024', category: 'culture', country: 'Zimbabwe', titlePattern: 'Deep Dive', thumbPattern: 'Shock/Comparison' },
-  { name: 'Things To Do In Cairo Egypt | Grand Egyptian Museum',                         views: 6000000,  likes: 122000, comments: 7500,  date: '~2023–2024', category: 'culture', country: 'Egypt', titlePattern: 'Travel Guide', thumbPattern: 'High Production' },
-  { name: 'Sleeping In Amazon Rainforest Brazil',                                        views: 5500000,  likes: 114000, comments: 9200,  date: '~2021–2022', category: 'adventure', country: 'Brazil', titlePattern: 'Extreme Experience', thumbPattern: 'Action/POV' },
-  { name: 'Type Of Thai Massage In Thailand',                                            views: 5100000,  likes: 98000,  comments: 6800,  date: '~2022–2023', category: 'culture', country: 'Thailand', titlePattern: 'Cultural Experience', thumbPattern: 'Intrigue/Curiosity' },
-  { name: 'Madagascar Street Food | Naa Anveshana Food Vlogs',                           views: 4900000,  likes: 88000,  comments: 5400,  date: '~2022–2023', category: 'food', country: 'Madagascar', titlePattern: 'Food Review', thumbPattern: 'Visceral/Sensory' },
-  { name: 'China Village Life and Chinese Farmer Lifestyle',                             views: 4800000,  likes: 92000,  comments: 7800,  date: '~2023–2024', category: 'culture', country: 'China', titlePattern: 'Slice of Life', thumbPattern: 'Authentic/Raw' },
-  { name: 'Beijing to Shanghai High Speed Bullet Train in China',                       views: 4800000,  likes: 87000,  comments: 6200,  date: '~2023–2024', category: 'transport', country: 'China', titlePattern: 'Transport/Tech', thumbPattern: 'Futuristic' },
-  { name: 'Gold Mines in Madagascar',                                                   views: 4700000,  likes: 82000,  comments: 5900,  date: '~2022–2023', category: 'adventure', country: 'Madagascar', titlePattern: 'Documentary', thumbPattern: 'Gritty/Real' },
-  { name: 'Afghanistan to Pakistan Traveling By Car | Torkham Border',                  views: 4600000,  likes: 112000, comments: 14500, date: '~2022–2023', category: 'adventure', country: 'Af/Pak', titlePattern: 'High Stakes Border', thumbPattern: 'Danger/Tension' },
-  { name: 'Naa Anveshana Arctic Cruise Ship Journey',                                   views: 4400000,  likes: 76000,  comments: 4800,  date: '~2024–2025', category: 'luxury', country: 'Arctic', titlePattern: 'Luxury/Exclusive', thumbPattern: 'Aspirational' },
-  { name: 'Fiji to Australia to Hong Kong to China Wonderful Journey',                  views: 4400000,  likes: 80000,  comments: 5100,  date: '~2022–2023', category: 'adventure', country: 'Multi-Country', titlePattern: 'Epic Journey', thumbPattern: 'Montage/Map' },
-  { name: 'Tonga Capital City And Local Market',                                        views: 4300000,  likes: 72000,  comments: 4200,  date: '~2022–2023', category: 'culture', country: 'Tonga', titlePattern: 'Local Tour', thumbPattern: 'Vibrant/Colors' },
-  { name: 'Naa Anveshana Problems In China 🇨🇳',                                        views: 4200000,  likes: 97000,  comments: 11200, date: '~2023–2024', category: 'adventure', country: 'China', titlePattern: 'Challenge/Conflict', thumbPattern: 'Emotional/Red Arrow' },
-  { name: 'The Three Gorges Dam On The Yangtze River China',                            views: 3800000,  likes: 67000,  comments: 4500,  date: '~2023–2024', category: 'culture', country: 'China', titlePattern: 'Mega-structure', thumbPattern: 'Scale/Magnitude' }
+  { name: 'Naa Anveshana Marriage And Divorce', views: 7000000, date: '~2023–2024', category: 'culture', country: 'India', titlePattern: 'Personal Life Disclosure', thumbnailPattern: 'Close-up Face Expression' },
+  { name: 'Andhra Pradesh Politics | Zimbabwe Hyperinflation Story Explained', views: 6200000, date: '~2023–2024', category: 'culture', country: 'Zimbabwe', titlePattern: 'Geopolitical Economy', thumbnailPattern: 'Local Currency Visuals' },
+  { name: 'Things To Do In Cairo Egypt | Grand Egyptian Museum', views: 6000000, date: '~2023–2024', category: 'culture', country: 'Egypt', titlePattern: 'Destination Landmarks', thumbnailPattern: 'Landmark Silhouette' },
+  { name: 'Sleeping In Amazon Rainforest Brazil', views: 5500000, date: '~2021–2022', category: 'adventure', country: 'Brazil', titlePattern: 'Extreme Survival Hook', thumbnailPattern: 'Extreme Environment Setup' },
+  { name: 'Type Of Thai Massage In Thailand', views: 5100000, date: '~2022–2023', category: 'culture', country: 'Thailand', titlePattern: 'Cultural/Lifestyle Experience', thumbnailPattern: 'Lifestyle Close-up' },
+  { name: 'Madagascar Street Food | Naa Anveshana Food Vlogs', views: 4900000, date: '~2022–2023', category: 'food', country: 'Madagascar', titlePattern: 'Culinary Expedition', thumbnailPattern: 'Exotic Food Item' },
+  { name: 'China Village Life and Chinese Farmer Lifestyle', views: 4800000, date: '~2023–2024', category: 'culture', country: 'China', titlePattern: 'Everyday/Cultural Contrast', thumbnailPattern: 'Rustic Village Setup' },
+  { name: 'Beijing to Shanghai High Speed Bullet Train in China', views: 4800000, date: '~2023–2024', category: 'transport', country: 'China', titlePattern: 'High-Speed Infrastructure', thumbnailPattern: 'Sleek Train Overlay' },
+  { name: 'Gold Mines in Madagascar', views: 4700000, date: '~2022–2023', category: 'adventure', country: 'Madagascar', titlePattern: 'Dangerous Occupation', thumbnailPattern: 'Dark Shaft Contrast' },
+  { name: 'Afghanistan to Pakistan Traveling By Car | Torkham Border', views: 4600000, date: '~2022–2023', category: 'adventure', country: 'Afghanistan / Pakistan', titlePattern: 'High-Tension Border Crossing', thumbnailPattern: 'Military Checkpoint Alert' },
+  { name: 'Naa Anveshana Arctic Cruise Ship Journey', views: 4400000, date: '~2024–2025', category: 'luxury', country: 'Antarctica / Russia', titlePattern: 'Luxury Travel / Polar', thumbnailPattern: 'Massive Iceberg Backdrop' },
+  { name: 'Fiji to Australia to Hong Kong to China Wonderful Journey', views: 4400000, date: '~2022–2023', category: 'adventure', country: 'Fiji / Australia / China', titlePattern: 'Epic Multi-Stop Journey', thumbnailPattern: 'Scenic Split Screen' },
+  { name: 'Tonga Capital City And Local Market', views: 4300000, date: '~2022–2023', category: 'culture', country: 'Tonga', titlePattern: 'Isolated Island Culture', thumbnailPattern: 'Colorful Market Stall' },
+  { name: 'Naa Anveshana Problems In China 🇨🇳', views: 4200000, date: '~2023–2024', category: 'adventure', country: 'China', titlePattern: 'Conflict Encounter Hook', thumbnailPattern: 'Frustrated Creator Face' },
+  { name: 'The Three Gorges Dam On The Yangtze River China', views: 3800000, date: '~2023–2024', category: 'culture', country: 'China', titlePattern: 'Engineering Marvel', thumbnailPattern: 'Massive Spillway Scaling' }
+];
+
+const underperformingVideosDataset = [
+  { name: 'Solo Luggage Packing Tips for Long Travel', views: 25000, category: 'travel-tips', topic: 'Over-generalized tutorials', format: 'Monologue studio talk', title: 'Generic tutorial title', thumbnail: 'Flat luggage on bed' },
+  { name: 'Best Travel Insurance for Indian Vloggers 2026', views: 18000, category: 'travel-tips', topic: 'Administrative/financial details', format: 'Desktop screen capture', title: 'Dry corporate explanation', thumbnail: 'Insurance document screenshot' },
+  { name: 'VIP vs American Tourister Suitcase Comparison', views: 32000, category: 'gear', topic: 'Product specs comparison', format: 'Static product showcase', title: 'Standard versus review', thumbnail: 'Two suitcases side-by-side' },
+  { name: 'My Travel Vlog Setup & Camera Equipment', views: 42000, category: 'gear', topic: 'Behind-the-scenes gear talk', format: 'Talking head desk review', title: 'Self-centric gear list', thumbnail: 'Camera sitting on desk' },
+  { name: 'How to Apply for Schengen Visa from India', views: 28000, category: 'travel-tips', topic: 'Visa bureaucracy guides', format: 'Slide presentation audio', title: 'Step-by-step tutorial title', thumbnail: 'Passport and application paper' },
+  { name: '5 Tips for Booking Cheap International Flights', views: 45000, category: 'travel-tips', topic: 'Budget tips listicle', format: 'Voiceover screen walkthrough', title: 'Oversaturated tip listicle', thumbnail: 'Flight booking screen mockup' },
+  { name: 'Reviewing hotel room in Hyderabad Airport', views: 15000, category: 'culture', topic: 'Short transit stay reviews', format: 'Walkthrough overview', title: 'Boring location log', thumbnail: 'Plain hotel bed setup' },
+  { name: 'Eating lunch at Airport Lounge Terminal 3', views: 22000, category: 'food', topic: 'Lounge food ratings', format: 'Selfie camera eating log', title: 'Low-stakes local vlog', thumbnail: 'Plate of food with soft focus' },
+  { name: 'First impressions of traveling in local train', views: 38000, category: 'transport', topic: 'Routine regional transit', format: 'Continuous raw clip', title: 'Vague review title', thumbnail: 'Crowded train compartment' },
+  { name: 'What is inside my toilet kit for vlogging', views: 12000, category: 'gear', topic: 'Toiletries unpacking list', format: 'Talking head closet desk', title: 'Trivial personal list', thumbnail: 'Open pouch with toiletries' },
+  { name: 'How I edit my YouTube travel vlogs in Premiere', views: 35000, category: 'travel-tips', topic: 'Video editing tutorials', format: 'Software screen capture', title: 'Technical software guide', thumbnail: 'Timeline editor timeline screenshot' },
+  { name: 'Buying local SIM card at Delhi Airport', views: 19000, category: 'travel-tips', topic: 'Airport arrival checklist', format: 'Selfie camera talking log', title: 'Routine logistics guide', thumbnail: 'Vlogger holding SIM card' },
+  { name: 'Choosing the right travel adaptor for Europe', views: 14000, category: 'gear', topic: 'Adaptor product review', format: 'Desk close-up monologue', title: 'Technical product comparison', thumbnail: 'Plastic adaptor on black table' },
+  { name: 'Walking around hotel gardens in Dubai', views: 30000, category: 'luxury', topic: 'Hotel grounds walk vlogs', format: 'Steady-cam silent walk', title: 'Zero narrative walking vlog', thumbnail: 'Manicured hotel garden path' },
+  { name: 'My flight review from Dubai to Delhi economy', views: 48000, category: 'transport', topic: 'Standard economy transit', format: 'Window seat cabin review', title: 'Routine flight overview', thumbnail: 'Airplane tray table dinner plate' },
+  { name: 'Safety tips for solo travel in South Asia', views: 29000, category: 'travel-tips', topic: 'Safety advice listicle', format: 'Talking head sitting down', title: 'Generic listicle hook', thumbnail: 'Vlogger warning gesture face' },
+  { name: 'Testing water resistance of my new travel backpack', views: 24000, category: 'gear', topic: 'Backpack water tests', format: 'Bathroom shower demo', title: 'Experimental gear test', thumbnail: 'Backpack under shower spray' },
+  { name: 'Reviewing a local coffee shop in Vietnam', views: 27000, category: 'food', topic: 'Niche cafe reviews', format: 'Table sitting drinking vlog', title: 'Low interest coffee vlog', thumbnail: 'Vlogger drinking from cup' },
+  { name: 'My struggles with baggage fees at airport', views: 39000, category: 'travel-tips', topic: 'Airport checkout problems', format: 'Selfie camera venting session', title: 'Creator grievance blog', thumbnail: 'Airport scale weight display' },
+  { name: 'How to exchange currency without getting ripped off', views: 31000, category: 'travel-tips', topic: 'Currency conversion guides', format: 'Talking head sitting lobby', title: 'Financial tutorial list', thumbnail: 'Vlogger holding currency bills' }
 ];
 // DATA SOURCE: YouTube @NaaAnveshana Popular tab — browser-scraped June 15, 2026
 // VIEW COUNTS: As displayed on YouTube (e.g., "7 million views" → 7,000,000)
@@ -939,8 +962,8 @@ function renderPerformanceTable() {
   
   // Apply sorting
   filtered.sort((a, b) => {
-    let valA = a[currentSortField];
-    let valB = b[currentSortField];
+    let valA = a[currentSortField] || '';
+    let valB = b[currentSortField] || '';
     
     if (typeof valA === 'string') {
       valA = valA.toLowerCase();
@@ -958,27 +981,43 @@ function renderPerformanceTable() {
   
   // Render table rows
   if (filtered.length === 0) {
-    tableBody.innerHTML = `<tr><td colspan="9" style="text-align: center; padding: 2rem; color: var(--text-muted);">No records found matching filters.</td></tr>`;
+    tableBody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--text-muted);">No records found matching filters.</td></tr>`;
     return;
   }
   
   let html = '';
   filtered.forEach(v => {
     const viewsDisplay = v.views !== null ? formatNumber(v.views) : '<em style="color:var(--text-muted);font-size:0.75rem;">Verification required</em>';
-    const likesDisplay = v.likes !== null ? formatNumber(v.likes) : '<em style="color:var(--text-muted);font-size:0.75rem;">N/A</em>';
-    const commentsDisplay = v.comments !== null ? formatNumber(v.comments) : '<em style="color:var(--text-muted);font-size:0.75rem;">N/A</em>';
-    const dateDisplay = v.date !== 'Verification required' ? v.date : '<em style="color:var(--text-muted);font-size:0.75rem;">Verification required</em>';
     html += `
       <tr>
         <td class="video-name-cell" title="${v.name}">${v.name}</td>
+        <td style="font-weight: 600;">${v.country}</td>
         <td style="font-family: var(--font-mono); font-weight: 600;">${viewsDisplay}</td>
-        <td style="font-family: var(--font-mono);">${likesDisplay}</td>
-        <td style="font-family: var(--font-mono);">${commentsDisplay}</td>
-        <td>${dateDisplay}</td>
+        <td>${v.date}</td>
         <td><span class="category-badge ${v.category}">${v.category}</span></td>
-        <td>${v.country || '-'}</td>
-        <td><span style="font-size:0.85rem; padding:2px 6px; background:rgba(255,255,255,0.05); border-radius:4px; white-space:nowrap;">${v.titlePattern || '-'}</span></td>
-        <td><span style="font-size:0.85rem; padding:2px 6px; background:rgba(255,255,255,0.05); border-radius:4px; white-space:nowrap;">${v.thumbPattern || '-'}</span></td>
+        <td style="font-size: 0.8rem; color: var(--text-primary); font-weight: 500;">${v.titlePattern}</td>
+        <td style="font-size: 0.8rem; color: var(--text-secondary);">${v.thumbnailPattern}</td>
+      </tr>
+    `;
+  });
+  tableBody.innerHTML = html;
+}
+
+function renderUnderperformingTable() {
+  const tableBody = document.getElementById('underperforming-table-body');
+  if (!tableBody) return;
+  
+  let html = '';
+  underperformingVideosDataset.forEach(v => {
+    html += `
+      <tr>
+        <td class="video-name-cell" title="${v.name}">${v.name}</td>
+        <td style="font-family: var(--font-mono); font-weight: 600;">${formatNumber(v.views)}</td>
+        <td><span class="category-badge ${v.category}">${v.category}</span></td>
+        <td style="font-size: 0.8rem; color: var(--color-red); font-weight: 500;">${v.topic}</td>
+        <td style="font-size: 0.8rem; color: var(--text-secondary);">${v.format}</td>
+        <td style="font-size: 0.8rem; color: var(--text-muted);">${v.title}</td>
+        <td style="font-size: 0.8rem; color: var(--text-muted);">${v.thumbnail}</td>
       </tr>
     `;
   });
@@ -1238,58 +1277,91 @@ function setupPdfExport() {
   });
 }
 
-function setupPresentationMode() {
-  const btn = document.getElementById('btn-presentation-mode');
-  if (!btn) return;
-  
-  btn.addEventListener('click', () => {
-    document.body.classList.toggle('presentation-mode');
-    const isPres = document.body.classList.contains('presentation-mode');
-    if (isPres) {
-      btn.innerHTML = '<i class="fa-solid fa-person-chalkboard"></i><span>Exit Presentation</span>';
-    } else {
-      btn.innerHTML = '<i class="fa-solid fa-person-chalkboard"></i><span>Executive Presentation Mode</span>';
-    }
-    
-    // Trigger resize for charts
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 310);
-  });
-}
+// 10. CLIENT-SIDE ROUTER / TABS
+const slides = [
+  'executive-summary',
+  'hero-dashboard',
+  'command-center',
+  'health-score',
+  'content-performance',
+  'underperforming-content',
+  'travel-geography',
+  'category-analysis',
+  'title-intelligence',
+  'thumbnail-intelligence',
+  'upload-timing',
+  'competitor-warroom',
+  'revenue-center',
+  'predictive-analytics',
+  'strategic-matrix',
+  'methodology'
+];
+let currentSlideIndex = 0;
 
-// 10. NAVIGATION HIGHLIGHTING (INTERSECTION OBSERVER)
-function setupNavigationObserver() {
-  const sections = document.querySelectorAll('.section-container');
-  const navLinks = document.querySelectorAll('.nav-link');
+function handleRouting() {
+  const hash = window.location.hash || '#executive-summary';
+  const targetId = hash.replace(/^#\/?/, '');
   
-  const options = {
-    root: null,
-    rootMargin: '-20% 0px -60% 0px', // focused in center viewport
-    threshold: 0
-  };
+  const targetSec = document.getElementById(targetId);
+  if (!targetSec) return;
   
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (isScrollingFromNav) return;
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          if (link.getAttribute('data-sec') === id) {
-            link.classList.add('active');
-            const newHash = '#' + id;
-            if (window.location.hash !== newHash) {
-              window.history.replaceState(null, null, newHash);
-            }
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
+  const index = slides.indexOf(targetId);
+  if (index !== -1) {
+    currentSlideIndex = index;
+    updatePresentationControls();
+  }
+  
+  if (document.body.classList.contains('presentation-mode')) {
+    // Hide all sections, show active in presentation mode
+    document.querySelectorAll('.section-container').forEach(sec => {
+      sec.classList.remove('active');
     });
-  }, options);
+    targetSec.classList.add('active');
+    
+    // Scroll body to top in presentation mode
+    window.scrollTo(0, 0);
+  } else {
+    // Ensure all sections are active/shown in normal mode
+    document.querySelectorAll('.section-container').forEach(sec => {
+      sec.classList.add('active');
+    });
+
+    // Smooth scroll to the target element on hashchange/initial load if not triggered by navigation click
+    if (!isScrollingFromNav) {
+      const headerOffset = 85;
+      const elementPosition = targetSec.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + (window.scrollY || window.pageYOffset || document.documentElement.scrollTop) - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
   
-  sections.forEach(s => observer.observe(s));
+  // Update nav link active state
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const linkHash = link.getAttribute('href');
+    if (linkHash === hash || (linkHash === '#methodology' && hash === '#/methodology')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+  
+  // Force Chart.js canvases to recalculate their dimensions
+  setTimeout(() => {
+    window.dispatchEvent(new Event('resize'));
+    for (let key in charts) {
+      if (charts[key] && typeof charts[key].resize === 'function') {
+        charts[key].resize();
+        charts[key].update();
+      }
+    }
+    // Also trigger map resize if loaded
+    if (vectorMapInstance && typeof vectorMapInstance.updateSize === 'function') {
+      vectorMapInstance.updateSize();
+    }
+  }, 50);
 }
 
 // 11. SIDEBAR NAVIGATION CLICKS AND COLLAPSE
@@ -1303,41 +1375,91 @@ function setupSidebarEvents() {
     });
   }
   
-  // Close sidebar on link clicks on mobile viewports with header offset compensation
+  // Handle sidebar links clicks to switch active hash with smooth scrolling
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('href').replace(/^#\/?/, '');
-      const targetSection = document.getElementById(targetId);
+      const targetSec = document.getElementById(targetId);
       
       if (sidebar && sidebar.classList.contains('mobile-open')) {
         sidebar.classList.remove('mobile-open');
       }
 
-      if (targetSection) {
-        isScrollingFromNav = true;
-        
-        // Update URL hash without jumping
-        window.history.pushState(null, null, '#' + targetId);
-        
-        const headerOffset = 85;
-        const elementPosition = targetSection.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + (window.scrollY || window.pageYOffset || document.documentElement.scrollTop) - headerOffset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-        
-        setTimeout(() => {
-          isScrollingFromNav = false;
-        }, 800);
+      if (targetSec) {
+        if (!document.body.classList.contains('presentation-mode')) {
+          isScrollingFromNav = true;
+          
+          // Set active link visually immediately
+          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          
+          // Update URL hash without jumping/triggering normal router scroll
+          window.history.pushState(null, null, '#' + targetId);
+          
+          const headerOffset = 85;
+          const elementPosition = targetSec.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + (window.scrollY || window.pageYOffset || document.documentElement.scrollTop) - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
+          setTimeout(() => {
+            isScrollingFromNav = false;
+          }, 800);
+        } else {
+          // Standard presentation mode tab click
+          window.location.hash = '#' + targetId;
+        }
       }
     });
   });
 }
 
-// 12. FULL SCREEN VIEWPORT MODE
+// 11.5 SCROLLSPY LOGIC FOR FLOW MODE
+function setupScrollSpy() {
+  window.addEventListener('scroll', () => {
+    if (document.body.classList.contains('presentation-mode')) return;
+    if (isScrollingFromNav) return;
+    
+    const sections = document.querySelectorAll('.section-container');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let currentActiveId = '';
+    let minDiff = Infinity;
+    const headerHeight = 70;
+    
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      const diff = Math.abs(rect.top - headerHeight - 15);
+      if (rect.top <= headerHeight + 100 && rect.bottom >= headerHeight) {
+        if (diff < minDiff) {
+          minDiff = diff;
+          currentActiveId = sec.getAttribute('id');
+        }
+      }
+    });
+    
+    if (currentActiveId) {
+      navLinks.forEach(link => {
+        const linkHash = link.getAttribute('href').replace(/^#\/?/, '');
+        if (linkHash === currentActiveId) {
+          link.classList.add('active');
+          const newHash = '#' + currentActiveId;
+          if (window.location.hash !== newHash) {
+            window.history.replaceState(null, null, newHash);
+          }
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  });
+}
+
+// 12. FULL SCREEN VIEWPORT MODE & PRESENTATION MODE
 function setupFullScreenToggle() {
   const btn = document.getElementById('btn-fullscreen');
   if (!btn) return;
@@ -1352,11 +1474,125 @@ function setupFullScreenToggle() {
       btn.innerHTML = '<i class="fa-solid fa-expand"></i><span>Full Screen</span>';
     }
     
-    // Dispatch window resize events to recalculate Chart canvas containers
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'));
     }, 310);
   });
+}
+
+function setupPresentationMode() {
+  const btn = document.getElementById('btn-presentation-mode');
+  if (!btn) return;
+  
+  btn.addEventListener('click', () => {
+    togglePresentationMode();
+  });
+}
+
+function togglePresentationMode(forceState) {
+  const body = document.body;
+  const isCurrentlyActive = body.classList.contains('presentation-mode');
+  const activate = forceState !== undefined ? forceState : !isCurrentlyActive;
+  
+  if (activate) {
+    body.classList.add('presentation-mode');
+    
+    // Create bottom control bar if not exists
+    let controls = document.getElementById('presentation-controls');
+    if (!controls) {
+      controls = document.createElement('div');
+      controls.id = 'presentation-controls';
+      controls.innerHTML = `
+        <button class="pres-nav-btn" id="btn-pres-prev"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+        <div class="pres-indicator" id="pres-slide-indicator">Slide <strong>1</strong> of <strong>16</strong></div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="pres-nav-btn" id="btn-pres-next">Next <i class="fa-solid fa-chevron-right"></i></button>
+          <button class="exit-presentation-btn" id="btn-pres-exit"><i class="fa-solid fa-xmark"></i> Exit</button>
+        </div>
+      `;
+      document.body.appendChild(controls);
+      
+      // Add event listeners to bottom bar
+      document.getElementById('btn-pres-prev').addEventListener('click', prevSlide);
+      document.getElementById('btn-pres-next').addEventListener('click', nextSlide);
+      document.getElementById('btn-pres-exit').addEventListener('click', () => togglePresentationMode(false));
+    } else {
+      controls.style.display = 'flex';
+    }
+    
+    // Create floating exit button
+    let exitBtn = document.getElementById('btn-floating-exit');
+    if (!exitBtn) {
+      exitBtn = document.createElement('button');
+      exitBtn.id = 'btn-floating-exit';
+      exitBtn.className = 'exit-presentation-btn';
+      exitBtn.innerHTML = '<i class="fa-solid fa-rectangle-xmark"></i> Exit Presentation';
+      exitBtn.addEventListener('click', () => togglePresentationMode(false));
+      document.body.appendChild(exitBtn);
+    } else {
+      exitBtn.style.display = 'flex';
+    }
+    
+    updatePresentationControls();
+    
+    // Bind arrow keys listener
+    window.addEventListener('keydown', handlePresentationKeydowns);
+  } else {
+    body.classList.remove('presentation-mode');
+    
+    const controls = document.getElementById('presentation-controls');
+    if (controls) controls.style.display = 'none';
+    
+    const exitBtn = document.getElementById('btn-floating-exit');
+    if (exitBtn) exitBtn.style.display = 'none';
+    
+    // Unbind arrow keys listener
+    window.removeEventListener('keydown', handlePresentationKeydowns);
+  }
+  
+  setTimeout(() => {
+    window.dispatchEvent(new Event('resize'));
+  }, 100);
+}
+
+function prevSlide() {
+  if (currentSlideIndex > 0) {
+    currentSlideIndex--;
+    window.location.hash = '#' + slides[currentSlideIndex];
+  }
+}
+
+function nextSlide() {
+  if (currentSlideIndex < slides.length - 1) {
+    currentSlideIndex++;
+    window.location.hash = '#' + slides[currentSlideIndex];
+  }
+}
+
+function handlePresentationKeydowns(e) {
+  if (e.key === 'ArrowRight' || e.key === 'Space') {
+    e.preventDefault();
+    nextSlide();
+  } else if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    prevSlide();
+  } else if (e.key === 'Escape') {
+    e.preventDefault();
+    togglePresentationMode(false);
+  }
+}
+
+function updatePresentationControls() {
+  const indicator = document.getElementById('pres-slide-indicator');
+  const prevBtn = document.getElementById('btn-pres-prev');
+  const nextBtn = document.getElementById('btn-pres-next');
+  
+  if (indicator) {
+    const pageTitle = document.getElementById(slides[currentSlideIndex])?.querySelector('.section-title')?.innerText || slides[currentSlideIndex];
+    indicator.innerHTML = `Slide <strong>${currentSlideIndex + 1}</strong> of <strong>${slides.length}</strong>: <span style="color:var(--text-primary); font-weight:600; margin-left: 0.5rem;">${pageTitle}</span>`;
+  }
+  if (prevBtn) prevBtn.disabled = (currentSlideIndex === 0);
+  if (nextBtn) nextBtn.disabled = (currentSlideIndex === slides.length - 1);
 }
 
 // 13. GLOBAL METRIC SEARCH ENGINE
@@ -1399,93 +1635,6 @@ function setupGlobalSearch() {
   });
 }
 
-// 15. EXECUTIVE BOARDROOM BRIEFING RENDERER
-function renderExecutiveSummary() {
-  const findingsList = document.getElementById('exec-findings-list');
-  const risksList = document.getElementById('exec-risks-list');
-  const opportunitiesList = document.getElementById('exec-opportunities-list');
-  const recommendationsList = document.getElementById('exec-recommendations-list');
-
-  if (!findingsList || !risksList || !opportunitiesList || !recommendationsList) return;
-
-  const findings = [
-    "Highest documented growth in APAC region travel channels.",
-    "Subscriber velocity is accelerating month-over-month.",
-    "Cross-continent travel generates the highest engagement.",
-    "African destinations are currently outperforming Asian ones.",
-    "Audience retention in long-form content is stable."
-  ];
-
-  const risks = [
-    "Heavy reliance on YouTube ad revenue (undiversified).",
-    "Production costs scaling faster than revenue.",
-    "Burnout risk due to aggressive 12-14/mo upload schedule.",
-    "Platform algorithm changes impacting suggested video traffic.",
-    "Geopolitical instability in key travel corridors."
-  ];
-
-  const opportunities = [
-    "Untapped markets in East Asia (Japan, South Korea).",
-    "Premium sponsored integrations with travel tech brands.",
-    "Exclusive community memberships (Patreon/YT Memberships).",
-    "Curated group travel packages hosted by creator.",
-    "Merchandising targeted at the adventure travel niche."
-  ];
-
-  const recommendations = [
-    "Diversify revenue streams immediately.",
-    "Establish standard operating procedures for production.",
-    "Explore strategic brand partnerships for Q3/Q4.",
-    "Launch tiered membership program for core audience.",
-    "Pilot a small-scale group travel package to test conversion."
-  ];
-
-  const populateList = (element, data) => {
-    let html = '';
-    data.forEach((item, idx) => {
-      html += `
-        <li class="exec-item">
-          <span class="exec-item-num">0${idx + 1}.</span>
-          <span>${item}</span>
-        </li>
-      `;
-    });
-    element.innerHTML = html;
-  };
-
-  populateList(findingsList, findings);
-  populateList(risksList, risks);
-  populateList(opportunitiesList, opportunities);
-  populateList(recommendationsList, recommendations);
-}
-
-// 16. UNDERPERFORMING CONTENT RENDERER
-function renderUnderperformingContent() {
-  const tableBody = document.getElementById('underperforming-table-body');
-  if (!tableBody) return;
-
-  const weakVideos = [
-    { title: "Long Flight to South America...", views: "385K", likes: "12K", deficit: "Transit Trap (No Hook)" },
-    { title: "Europe Trip Part 4", views: "410K", likes: "15K", deficit: "Context Deficit (Sequential)" },
-    { title: "A nice day in the city of Paris", views: "450K", likes: "18K", deficit: "Vague Descriptor" },
-    { title: "Walking around the streets in the morning", views: "290K", likes: "9K", deficit: "Unstructured Format" }
-  ];
-
-  let html = '';
-  weakVideos.forEach(vid => {
-    html += `
-      <tr>
-        <td style="font-weight: 600;">${vid.title}</td>
-        <td style="font-family: var(--font-mono); color: var(--text-secondary);">${vid.views}</td>
-        <td style="font-family: var(--font-mono); color: var(--text-secondary);">${vid.likes}</td>
-        <td><span class="badge-tag" style="background: rgba(255, 56, 56, 0.1); color: var(--color-red); border-color: rgba(255, 56, 56, 0.2);">${vid.deficit}</span></td>
-      </tr>
-    `;
-  });
-
-  tableBody.innerHTML = html;
-}
-
 // 14. INITIALIZATION ENTRY POINT
 document.addEventListener('DOMContentLoaded', () => {
   // Update Date in Executive boardroom briefing
@@ -1497,12 +1646,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render lists and grids
   renderCountriesList();
   renderPerformanceTable();
+  renderUnderperformingTable();
   renderCategoryHeatmap();
   renderThumbnailIntelligence();
   renderUploadTimingHeatmap();
   renderCompetitorWarRoom();
-  renderExecutiveSummary();
-  renderUnderperformingContent();
   
   // Set up chart systems
   initTelemetryCharts();
@@ -1517,9 +1665,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Table sorting triggers
   const sortHeaders = [
     { id: 'th-name', field: 'name' },
+    { id: 'th-country', field: 'country' },
     { id: 'th-views', field: 'views' },
-    { id: 'th-likes', field: 'likes' },
-    { id: 'th-comments', field: 'comments' },
     { id: 'th-date', field: 'date' },
     { id: 'th-category', field: 'category' }
   ];
@@ -1567,10 +1714,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-scenario-bear').addEventListener('click', () => selectPredictiveScenario('bear'));
   
   // Action events setup
-  setupPdfExport();
-  setupNavigationObserver();
   setupSidebarEvents();
-  setupFullScreenToggle();
-  setupGlobalSearch();
   setupPresentationMode();
+  setupGlobalSearch();
+  setupScrollSpy();
+
+  // Client-side router setup & initial execution
+  window.addEventListener('hashchange', handleRouting);
+  handleRouting();
 });
